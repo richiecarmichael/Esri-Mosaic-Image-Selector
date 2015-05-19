@@ -13,4 +13,8 @@ The aim of this add-in was to provide an intuitive user interface for sorting an
 
 This repository does not include the compiled [add-in](http://resources.arcgis.com/en/help/main/10.1/index.html#//014p0000001m000000). The source must be downloaded and build using Microsoft [Visual Studio](https://www.visualstudio.com/) on a computer with ArcGIS Destkop 10.3+.
 
+The project has the following dependancies:
+- [WPF Toolkit](http://wpftoolkit.codeplex.com/)
+- [3D Tools for Windows Presentation Foundation](http://3dtools.codeplex.com/)
+
 The Mosaic Image Finder window is created using [WPF 3D](https://msdn.microsoft.com/en-us/library/ms747437%28v=vs.110%29.aspx) (.NET). One of the difficulties when developing this application was creating a threading model for background image requests. If images were downloaded in the UI thread then ArcMap would totally lock-up. Even though background threads can use ArcObjects, it is not recommended to parse ArcObject references between threads, doing so will cause cross-thread issues such as a severe performance hit.  When possible I created proxy classes to assist with the exchange of simple data types like [IEnvelope](http://resources.arcgis.com/en/help/arcobjects-net/componenthelp/index.html#//002m00000169000000). However to parse a [Layer](http://resources.arcgis.com/en/help/arcobjects-net/componenthelp/index.html#//0012000006z1000000) I was forced to persist the layer to file and have it opened in the background thread, not the best but unavoidable.
