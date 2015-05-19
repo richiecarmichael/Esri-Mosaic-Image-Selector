@@ -1,0 +1,27 @@
+﻿<ESRI.Configuration xmlns="http://schemas.esri.com/Desktop/AddIns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>Mosaic Image Finder</Name>
+  <AddInID>{d4eb2d59-b7c7-4ea2-9237-df1fac553887}</AddInID>
+  <Description>This addin will display images from a mosaic that are in the current map extent in a three dimensional viewer. The viewer provides an effective way to sort and manage imagery for a location.</Description>
+  <Version>10.2</Version>
+  <Image>Images\Application.png</Image>
+  <Author>Applications Prototype Lab</Author>
+  <Company>Esri</Company>
+  <Date>05/19/2015</Date>
+  <Targets>
+    <Target name="Desktop" version="10.3" />
+  </Targets>
+  <AddIn language="CLR4.5" library="ESRI.PrototypeLab.MosaicImageSelector.dll" namespace="ESRI.PrototypeLab.MosaicImageSelector">
+    <ArcMap>
+      <Commands>
+        <Button id="ESRI_PrototypeLab_MosaicImageSelector_ButtonMosaicViewer" class="ButtonMosaicViewer" message="This button will display images from a mosaic that are in the current map extent in a three dimensional viewer." caption="Mosaic Image Finder" tip="Mosaic Image Finder" category="Add-In Controls" image="Images\ButtonMosaicViewer.png" />
+      </Commands>
+      <Toolbars>
+        <Toolbar id="ESRI_PrototypeLab_MosaicImageSelector_Toolbar" caption="Mosaic Image Finder">
+          <Items>
+            <Button refID="ESRI_PrototypeLab_MosaicImageSelector_ButtonMosaicViewer"/>
+          </Items>
+        </Toolbar>
+      </Toolbars>
+    </ArcMap>
+  </AddIn>
+</ESRI.Configuration>
